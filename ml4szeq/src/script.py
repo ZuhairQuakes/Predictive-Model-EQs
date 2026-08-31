@@ -19,10 +19,10 @@ import torch
 import yaml
 from torch.utils.data import DataLoader
 
-# Terrible hack to make sure Jupyter notebooks (which use different PYTHONPATH
-# for some reason!) actually sees src/ directory so we can import from there.
-os.chdir("/Users/jgra0019/Documents/codes/ml4szeq/ml4szeq")
-#os.chdir("/home/jgra0019/xa94/jcg/ml4szeq/ml4szeq") # use this path in M3
+# Resolve the project from this file so the workflow is portable across local
+# machines and HPC environments.
+project_root = Path(__file__).resolve().parents[1]
+os.chdir(project_root)
 print(f"--- Current working directory: {os.getcwd()}")
 if not any([re.search("src$", path) for path in sys.path]):
     sys.path.append(str(Path.cwd() / "src"))
@@ -165,6 +165,5 @@ for i in range(num_train):
 hyperparam_config
 
 # %%
-
 
 

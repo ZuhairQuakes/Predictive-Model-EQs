@@ -1,0 +1,51 @@
+cff-version: 1.2.0
+message: "If you use this software or its data, please cite the associated article and archived dataset."
+title: "Explainable AI pipeline for megathrust seismicity"
+type: software
+authors:
+  - given-names: Juan Carlos
+    family-names: Graciosa
+    orcid: "https://orcid.org/0000-0003-0817-354X"
+  - given-names: Fabio A.
+    family-names: Capitanio
+    orcid: "https://orcid.org/0000-0003-2131-8723"
+  - given-names: Adam
+    family-names: Beall
+    orcid: "https://orcid.org/0000-0002-7182-1864"
+  - given-names: Mitchell
+    family-names: Hargreaves
+    orcid: "https://orcid.org/0000-0002-4264-7211"
+  - given-names: Thyagarajulu
+    family-names: Gollapalli
+  - given-names: Titus
+    family-names: Tang
+  - given-names: Mohd
+    family-names: Zuhair
+repository-code: "https://github.com/ZuhairQuakes/Predictive-Model-EQs"
+identifiers:
+  - type: doi
+    value: "10.5281/zenodo.13219207"
+    description: "Archived data, code, and trained models"
+preferred-citation:
+  type: article
+  title: "Testing Driving Mechanisms of Megathrust Seismicity With Explainable Artificial Intelligence"
+  authors:
+    - given-names: Juan Carlos
+      family-names: Graciosa
+    - given-names: Fabio A.
+      family-names: Capitanio
+    - given-names: Adam
+      family-names: Beall
+    - given-names: Mitchell
+      family-names: Hargreaves
+    - given-names: Thyagarajulu
+      family-names: Gollapalli
+    - given-names: Titus
+      family-names: Tang
+    - given-names: Mohd
+      family-names: Zuhair
+  journal: "Journal of Geophysical Research: Solid Earth"
+  year: 2025
+  volume: 130
+  issue: 1
+  doi: "10.1029/2024JB028774"

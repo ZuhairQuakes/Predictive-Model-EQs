@@ -1,13 +1,15 @@
 import json
+import os
 import pickle
+from pathlib import Path
 
 import torch
 import yaml
 
-import default
 from preprocessor import Preprocessor
 
 ZERO_TENSOR = torch.zeros(1)  # Just useful as a placeholder for emtpy losses later
+PROJECT_ROOT = Path(__file__).resolve().parents[1]
 
 
 def load_data(
@@ -79,8 +81,10 @@ def get_config(key, default):
     the config in the middle of a run, and have those changes reflected in the
     code! Useful when running this script as a notebook.
     """
-    # Read configuration from file
-    with open("config.json", "r") as f:
+    # Resolve the configuration from the project rather than the caller's
+    # working directory. ML4SZEQ_CONFIG allows an untracked local override.
+    config_path = Path(os.environ.get("ML4SZEQ_CONFIG", PROJECT_ROOT / "config.json"))
+    with config_path.expanduser().open("r", encoding="utf-8") as f:
         config = json.load(f)
 
     return config.get(key, default)
@@ -188,7 +192,8 @@ def get_full_hyperparam_config(config_override_file=None):
     specified file.
     """
     print("--- Reading from default.yml to build up initial hyperparameters dictionary...")
-    with open(default.WANDB_PARAMETERS_DIRECTORY / "default.yml", "r") as f:
+    parameters_directory = PROJECT_ROOT / "parameters"
+    with open(parameters_directory / "default.yml", "r") as f:
         # safe_load ensures we only load basic python types (ints, floats, lists),
         # which should be all we need. If you ever need to store functions though,
         # see the pyyaml docs.
@@ -202,7 +207,7 @@ def get_full_hyperparam_config(config_override_file=None):
         print(
             f"--- Override file found! Updating with hyperparameters from {config_override_file}..."
         )
-        with open(default.WANDB_PARAMETERS_DIRECTORY / config_override_file, "r") as f:
+        with open(parameters_directory / config_override_file, "r") as f:
             config_override = yaml.safe_load(f)
             hyperparam_config = deep_update(hyperparam_config, config_override)
 

@@ -1,6 +1,6 @@
 from pathlib import Path
 
-from utils import get_config
+from utils import PROJECT_ROOT, get_config
 
 ############ MODEL/PREPROCESSING PARAMETERS WHICH SHOULDN'T CHANGE ############
 # Since we have so many columns in our newer datasets, it would be silly to whitelist
@@ -97,7 +97,9 @@ EXCLUDE_FOR_INPUT = EXCLUDE_FOR_INPUT
 
 ################################## FILEPATHS ##################################
 # Root folder set as described in config. Defaults to current working dir.
-ROOT_DIRECTORY = Path(get_config("ROOT_DIRECTORY", Path.cwd()))
+ROOT_DIRECTORY = Path(get_config("ROOT_DIRECTORY", PROJECT_ROOT)).expanduser()
+if not ROOT_DIRECTORY.is_absolute():
+    ROOT_DIRECTORY = (PROJECT_ROOT / ROOT_DIRECTORY).resolve()
 # Directory in which we store all of our output files/sub-directories.
 ROOT_OUTPUT_DIRECTORY = ROOT_DIRECTORY / "out"
 MODELS_DIRECTORY = ROOT_OUTPUT_DIRECTORY / "models/combine-all" # always use scenario3
