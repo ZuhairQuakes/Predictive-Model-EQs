@@ -24,7 +24,7 @@ authors:
     family-names: Tang
   - given-names: Mohd
     family-names: Zuhair
-repository-code: "https://github.com/ZuhairQuakes/Predictive-Model-EQs"
+repository-code: "https://github.com/ZuhairQuakes/explainable-AI"
 identifiers:
   - type: doi
     value: "10.5281/zenodo.13219207"

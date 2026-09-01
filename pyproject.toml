@@ -51,9 +51,9 @@ dev = [
 
 [project.urls]
 Article = "https://doi.org/10.1029/2024JB028774"
-Documentation = "https://github.com/ZuhairQuakes/Predictive-Model-EQs#readme"
-Issues = "https://github.com/ZuhairQuakes/Predictive-Model-EQs/issues"
-Repository = "https://github.com/ZuhairQuakes/Predictive-Model-EQs"
+Documentation = "https://github.com/ZuhairQuakes/explainable-AI#readme"
+Issues = "https://github.com/ZuhairQuakes/explainable-AI/issues"
+Repository = "https://github.com/ZuhairQuakes/explainable-AI"
 
 [tool.setuptools.package-dir]
 "" = "src"

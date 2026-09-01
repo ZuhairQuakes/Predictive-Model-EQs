@@ -1,6 +1,6 @@
 # Explainable AI for megathrust seismicity
 
-[![Repository quality](https://github.com/ZuhairQuakes/Predictive-Model-EQs/actions/workflows/repository-quality.yml/badge.svg)](https://github.com/ZuhairQuakes/Predictive-Model-EQs/actions/workflows/repository-quality.yml)
+[![Repository quality](https://github.com/ZuhairQuakes/explainable-AI/actions/workflows/repository-quality.yml/badge.svg)](https://github.com/ZuhairQuakes/explainable-AI/actions/workflows/repository-quality.yml)
 [![DOI](https://zenodo.org/badge/DOI/10.5281/zenodo.13219207.svg)](https://doi.org/10.5281/zenodo.13219207)
 [![License: MIT](https://img.shields.io/badge/License-MIT-2ea44f.svg)](LICENSE)
 
@@ -62,8 +62,8 @@ The analysis supports established links with interface curvature, sediment thick
 Clone the repository and run the dependency-free integrity checks:
 
 ```bash
-git clone https://github.com/ZuhairQuakes/Predictive-Model-EQs.git
-cd Predictive-Model-EQs
+git clone https://github.com/ZuhairQuakes/explainable-AI.git
+cd explainable-AI
 python tools/validate_repository.py
 ```
 
