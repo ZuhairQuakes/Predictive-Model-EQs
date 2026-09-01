@@ -8,15 +8,26 @@ permissions:
   contents: read
 
 jobs:
-  validate:
+  test:
     runs-on: ubuntu-latest
-    timeout-minutes: 5
+    timeout-minutes: 15
     steps:
       - name: Check out repository
-        uses: actions/checkout@v4
+        uses: actions/checkout@v7
       - name: Set up Python
-        uses: actions/setup-python@v5
+        uses: actions/setup-python@v7
         with:
           python-version: "3.11"
-      - name: Validate source and research artifacts
+          cache: pip
+      - name: Install package and application dependencies
+        run: python -m pip install --upgrade pip && python -m pip install -e ".[dev,app]"
+      - name: Lint package, tests, and application
+        run: ruff check .
+      - name: Run tests, including application smoke test
+        run: pytest
+      - name: Validate research artifacts
         run: python tools/validate_repository.py
+      - name: Build distributions
+        run: python -m build
+      - name: Verify installed wheel
+        run: python -m pip install --no-deps --force-reinstall dist/*.whl

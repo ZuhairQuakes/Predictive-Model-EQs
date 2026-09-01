@@ -1,0 +1,75 @@
+[build-system]
+requires = ["setuptools>=77"]
+build-backend = "setuptools.build_meta"
+
+[project]
+name = "megathrust-xai"
+version = "0.1.0"
+description = "Interactive inference and explainability tools for megathrust seismicity models."
+readme = "README.md"
+requires-python = ">=3.10"
+license = "MIT"
+license-files = ["LICENSE"]
+authors = [
+  { name = "Juan Carlos Graciosa" },
+  { name = "Fabio A. Capitanio" },
+  { name = "Adam Beall" },
+  { name = "Mitchell Hargreaves" },
+  { name = "Thyagarajulu Gollapalli" },
+  { name = "Titus Tang" },
+  { name = "Mohd Zuhair" },
+]
+keywords = ["explainable-ai", "earthquakes", "lrp", "megathrust", "natural-hazards"]
+classifiers = [
+  "Development Status :: 3 - Alpha",
+  "Intended Audience :: Science/Research",
+  "Operating System :: OS Independent",
+  "Programming Language :: Python :: 3",
+  "Programming Language :: Python :: 3.10",
+  "Programming Language :: Python :: 3.11",
+  "Programming Language :: Python :: 3.12",
+  "Topic :: Scientific/Engineering :: Artificial Intelligence",
+]
+dependencies = [
+  "numpy>=1.26,<2",
+  "pandas>=2.1,<3",
+  "scikit-learn>=1.4,<2",
+  "torch>=2.2,<3",
+]
+
+[project.optional-dependencies]
+app = [
+  "captum>=0.8,<1",
+  "plotly>=5.24,<7",
+  "streamlit>=1.42,<2",
+]
+dev = [
+  "build>=1.2,<2",
+  "pytest>=8,<10",
+  "ruff>=0.8,<1",
+]
+
+[project.urls]
+Article = "https://doi.org/10.1029/2024JB028774"
+Documentation = "https://github.com/ZuhairQuakes/Predictive-Model-EQs#readme"
+Issues = "https://github.com/ZuhairQuakes/Predictive-Model-EQs/issues"
+Repository = "https://github.com/ZuhairQuakes/Predictive-Model-EQs"
+
+[tool.setuptools.package-dir]
+"" = "src"
+
+[tool.setuptools.packages.find]
+where = ["src"]
+
+[tool.pytest.ini_options]
+addopts = "-q"
+pythonpath = ["src"]
+testpaths = ["tests"]
+
+[tool.ruff]
+extend-exclude = ["*.ipynb", "helper_pkg", "ml4szeq"]
+line-length = 100
+target-version = "py310"
+
+[tool.ruff.lint]
+select = ["B", "E", "F", "I", "UP"]

@@ -1,0 +1,7 @@
+include CHANGELOG.md
+include CITATION.cff
+include LICENSE
+include README.md
+include SCIENTIFIC_METHOD.md
+include streamlit_app.py
+recursive-include .streamlit *.toml

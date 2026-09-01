@@ -1,0 +1,11 @@
+.git
+.github
+.venv
+__pycache__
+*.pyc
+dist
+build
+ml4szeq/data
+ml4szeq/out
+ml4szeq/wandb
+ntbk

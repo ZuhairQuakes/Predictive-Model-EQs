@@ -1,0 +1,23 @@
+name: Scientific proposal
+description: Propose an explanation method, validation, data integration, or model comparison.
+title: "[Science]: "
+labels: [enhancement, science]
+body:
+  - type: textarea
+    id: question
+    attributes:
+      label: Scientific question
+    validations:
+      required: true
+  - type: textarea
+    id: method
+    attributes:
+      label: Proposed method and assumptions
+    validations:
+      required: true
+  - type: textarea
+    id: validation
+    attributes:
+      label: References and validation plan
+    validations:
+      required: true
